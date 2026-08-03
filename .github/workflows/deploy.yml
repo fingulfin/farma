@@ -30,7 +30,7 @@ jobs:
       - run: npm ci
 
       - name: Build (production)
-        run: npx ng build --configuration production --base-href "/angular-videojuego/" --output-path=dist
+        run: npx ng build --configuration production --base-href "/farma/" --output-path=dist
 
       - name: Prepare SPA artifact
         run: |
