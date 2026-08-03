@@ -36,6 +36,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/farma/",
               "budgets": [
                 {
                   "type": "initial",
