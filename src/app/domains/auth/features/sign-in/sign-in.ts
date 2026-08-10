@@ -68,11 +68,9 @@ export default class AuthSignIn {
         }
       } catch (error) {
         console.error('Login failed:', error);
-        if (error instanceof HttpErrorResponse && error.status === 401) {
-          const message =
-            (error.error as { error?: string })?.error ??
-            'Unauthorized';
-          this.authError.set(message);
+        if (error instanceof HttpErrorResponse) {
+          const apiError = error.error as { error?: string } | undefined;
+          this.authError.set(apiError?.error ?? 'Login failed. Please try again.');
         } else {
           this.authError.set('Login failed. Please try again.');
         }
