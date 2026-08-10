@@ -69,10 +69,9 @@ export default class AuthSignIn {
       } catch (error) {
         console.error('Login failed:', error);
         if (error instanceof HttpErrorResponse) {
-          const apiError = error.error as { error?: string } | undefined;
-          this.authError.set(apiError?.error ?? 'Login failed. Please try again.');
+          this.authError.set((error.error as { error?: string })?.error ?? 'Login failed');
         } else {
-          this.authError.set('Login failed. Please try again.');
+          this.authError.set('Login failed');
         }
       }
     });
