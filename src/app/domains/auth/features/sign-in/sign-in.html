@@ -10,7 +10,11 @@
         alt="Fuse logo"
       />
 
-      <!-- Title -->
+      @if (authError()) {
+        <div class="mt-4 rounded-md bg-red-100 p-3 text-sm text-red-800 dark:bg-red-900/30 dark:text-red-300">
+          {{ authError() }}
+        </div>
+      }
       <div class="leading-tight mt-8 text-4xl font-extrabold tracking-tight">
 Ingresar
       </div>

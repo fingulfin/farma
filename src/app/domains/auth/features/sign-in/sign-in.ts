@@ -6,7 +6,7 @@ import {
   required,
   submit,
 } from '@angular/forms/signals';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDivider } from '@angular/material/divider';
@@ -47,9 +47,11 @@ export default class AuthSignIn {
 
     required(form.password, { message: 'You must enter a password' });
   });
+  protected authError = signal<string | null>(null);
 
   signIn(event: Event) {
     event.preventDefault();
+    this.authError.set(null);
 
     submit(this.signInForm, async () => {
       try {
@@ -66,6 +68,14 @@ export default class AuthSignIn {
         }
       } catch (error) {
         console.error('Login failed:', error);
+        if (error instanceof HttpErrorResponse && error.status === 401) {
+          const message =
+            (error.error as { error?: string })?.error ??
+            'Unauthorized';
+          this.authError.set(message);
+        } else {
+          this.authError.set('Login failed. Please try again.');
+        }
       }
     });
   }
