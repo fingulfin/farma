@@ -6,6 +6,7 @@ import {
   required,
   submit,
 } from '@angular/forms/signals';
+import { HttpClient } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDivider } from '@angular/material/divider';
@@ -31,6 +32,7 @@ import { Router, RouterLink } from '@angular/router';
 export default class AuthSignIn {
   // Dependencies
   private router = inject(Router);
+  private http = inject(HttpClient);
 
   // State
   protected signInFormModel = signal({
@@ -48,8 +50,21 @@ export default class AuthSignIn {
     event.preventDefault();
 
     submit(this.signInForm, async () => {
-      // Navigate to a route, demo purposes only
-      this.router.navigateByUrl('/admin/dashboards');
+      try {
+        const response = await this.http
+          .post<{ token: string }>('http://localhost:3000/api/auth/login', {
+            email: this.signInFormModel().email,
+            password: this.signInFormModel().password,
+          })
+          .toPromise();
+
+        if (response?.token) {
+          localStorage.setItem('auth_token', response.token);
+          this.router.navigateByUrl('/admin/modules');
+        }
+      } catch (error) {
+        console.error('Login failed:', error);
+      }
     });
   }
 }
