@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { LocalStorage } from '@/app/core/local-storage/local-storage';
+import { response } from 'express';
 
 @Component({
   selector: 'auth-sign-in',
@@ -71,7 +72,7 @@ export default class AuthSignIn {
         if (error instanceof HttpErrorResponse) {
           this.authError.set((error.error as { error?: string })?.error ?? 'Login failed');
         } else {
-          this.authError.set('Login failed');
+          this.authError.set("este es ");
         }
       }
     });
