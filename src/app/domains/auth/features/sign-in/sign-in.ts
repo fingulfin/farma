@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
+import { LocalStorage } from '@/app/core/local-storage/local-storage';
 
 @Component({
   selector: 'auth-sign-in',
@@ -33,6 +34,7 @@ export default class AuthSignIn {
   // Dependencies
   private router = inject(Router);
   private http = inject(HttpClient);
+  private storage = inject(LocalStorage);
 
   // State
   protected signInFormModel = signal({
@@ -59,7 +61,7 @@ export default class AuthSignIn {
           .toPromise();
 
         if (response?.token) {
-          localStorage.setItem('auth_token', response.token);
+          this.storage.setItem('auth_token', response.token);
           this.router.navigateByUrl('/admin/modules');
         }
       } catch (error) {
