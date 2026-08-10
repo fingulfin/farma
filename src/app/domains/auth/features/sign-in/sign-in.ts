@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { LocalStorage } from '@/app/core/local-storage/local-storage';
+import { environment } from '@/environments/environment';
 import { response } from 'express';
 
 @Component({
@@ -57,7 +58,7 @@ export default class AuthSignIn {
     submit(this.signInForm, async () => {
       try {
         const response = await this.http
-          .post<{ token: string }>('http://localhost:3000/api/auth/login', {
+          .post<{ token: string }>(environment.apiUrl, {
             email: this.signInFormModel().email,
             password: this.signInFormModel().password,
           })
