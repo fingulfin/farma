@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{d as u}from"./chunk-AND4H3GO.mjs";import"./chunk-PFEK4KW7.mjs";import{Rb as n,qb as a}from"./chunk-K4TA7ZUZ.mjs";import"./chunk-T55IDOPT.mjs";var e=class o{static \u0275fac=function(t){return new(t||o)};static \u0275cmp=a({type:o,selectors:[["auth-layout"]],decls:1,vars:0,template:function(t,s){t&1&&n(0,"router-outlet")},dependencies:[u],encapsulation:2})};export{e as default};

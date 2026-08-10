@@ -1,5 +1,5 @@
-# IMPORTANT: replace "angular-videojuego" in the --base-href below with your actual GitHub repository name
-# if it differs. The site will be served at https://<user>.github.io/<repo>/
+# Deploy floky to GitHub Pages
+# The site will be served at https://<user>.github.io/floky/
 name: Deploy to GitHub Pages
 
 on:
@@ -30,16 +30,16 @@ jobs:
       - run: npm ci
 
       - name: Build (production)
-        run: npx ng build --configuration production --output-path=dist
+        run: npx ng build --configuration production
 
       - name: Prepare SPA artifact
         run: |
-          mv dist/browser/index.csr.html dist/browser/index.html
-          cp dist/browser/index.html dist/browser/404.html
+          mv dist/floky/browser/index.csr.html dist/floky/browser/index.html
+          cp dist/floky/browser/index.html dist/floky/browser/404.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/browser
+          path: dist/floky/browser
 
   deploy:
     needs: build

@@ -74,7 +74,7 @@ import { MatSelect } from '@angular/material/select';
           class="text-neutral-500"
           matPrefix
         >
-          fusetheme.com/
+          floky.app/
         </div>
       </mat-form-field>
 

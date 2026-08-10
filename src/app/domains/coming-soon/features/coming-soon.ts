@@ -24,7 +24,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
           <img
             class="w-12"
             src="/images/logo/logo.svg"
-            alt="Fuse logo"
+            alt="Floky logo"
           />
 
           <!-- Title -->
@@ -128,7 +128,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
               Welcome to our community
             </div>
             <div class="text-medium mt-6 text-xl text-neutral-500">
-              Fuse helps developers to build organized and well coded dashboards
+              Floky helps developers to build organized and well coded dashboards
               full of beautiful and rich modules. Join us and start building
               your application today.
             </div>

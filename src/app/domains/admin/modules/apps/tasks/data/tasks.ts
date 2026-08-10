@@ -117,7 +117,7 @@ export class TasksService {
     },
     {
       id: '4d24cf48-a322-4d53-89cb-9140dfd5c6ba',
-      name: 'Jfuseine Hebert',
+      name: 'Jflokyne Hebert',
       avatar: 'images/avatars/female-10.jpg',
     },
     {
