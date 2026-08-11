@@ -67,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "floky:build:production"
+              "buildTarget": "farma:build:production"
             },
             "development": {
-              "buildTarget": "floky:build:development"
+              "buildTarget": "farma:build:development"
             }
           },
           "defaultConfiguration": "development"
