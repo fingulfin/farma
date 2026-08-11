@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import"./chunk-T55IDOPT.mjs";var o=[{path:"",loadComponent:()=>import("./chunk-KE4IWDRR.mjs"),children:[{path:"",pathMatch:"full",redirectTo:"sign-in"},{path:"forgot-password",loadComponent:()=>import("./chunk-3LA76HAL.mjs")},{path:"reset-password",loadComponent:()=>import("./chunk-IZZRXNOV.mjs")},{path:"sign-in",loadComponent:()=>import("./chunk-EBFOHWYZ.mjs")},{path:"sign-up",loadComponent:()=>import("./chunk-KNLYDV7R.mjs")}],\u0275entryName:"src/app/domains/auth/layout.ts"}],t=o;export{t as default};

@@ -1,0 +1,1 @@
+import"./chunk-7CGTOI24.js";var e=[{path:"",pathMatch:"full",redirectTo:"project"},{path:"project",loadComponent:()=>import("./chunk-NBZUO6PI.js")},{path:"analytics",loadComponent:()=>import("./chunk-UTBORLL7.js")},{path:"finance",loadComponent:()=>import("./chunk-7JQ7OV5U.js")}],o=e;export{o as default};
