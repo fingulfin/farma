@@ -2,11 +2,11 @@ import {
   SharedResizeObserver
 } from "./chunk-QN24BMMK.js";
 import {
-  coerceBooleanProperty
-} from "./chunk-JRYBI2CM.js";
-import {
   _animationsDisabled
 } from "./chunk-JW54EOPW.js";
+import {
+  coerceBooleanProperty
+} from "./chunk-JRYBI2CM.js";
 import {
   _IdGenerator
 } from "./chunk-KCGWZZWS.js";
@@ -1417,4 +1417,4 @@ export {
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
   MatFormField
 };
-//# sourceMappingURL=chunk-VSOURFI6.js.map
+//# sourceMappingURL=chunk-JYWZGVBB.js.map

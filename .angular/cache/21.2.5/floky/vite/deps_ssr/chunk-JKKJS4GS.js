@@ -1,40 +1,41 @@
-import {
-  coerceBooleanProperty
-} from "./chunk-JRYBI2CM.js";
+import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   _animationsDisabled
-} from "./chunk-JW54EOPW.js";
+} from "./chunk-MJYRT3QR.js";
+import {
+  coerceBooleanProperty
+} from "./chunk-6WRSTB2O.js";
 import {
   AriaDescriber,
   FocusMonitor
-} from "./chunk-S2HCN6EQ.js";
+} from "./chunk-6JY2N73D.js";
 import {
   MediaMatcher
-} from "./chunk-M7CJEGP6.js";
+} from "./chunk-7KWR7RM3.js";
 import {
   createFlexibleConnectedPositionStrategy,
   createOverlayRef,
   createRepositionScrollStrategy
-} from "./chunk-2UJZH57X.js";
+} from "./chunk-X7Z64IKW.js";
 import {
   ComponentPortal
-} from "./chunk-DXQYOXXN.js";
+} from "./chunk-WHF3TBD7.js";
 import {
   ESCAPE,
   hasModifierKey
-} from "./chunk-B7XDWOSB.js";
+} from "./chunk-CCLZSTQF.js";
 import {
   ScrollDispatcher
-} from "./chunk-JMKWWLIP.js";
+} from "./chunk-T3LVKHA2.js";
 import {
   Directionality
-} from "./chunk-AUDLW4C6.js";
+} from "./chunk-ZCHOUZYR.js";
 import {
   coerceNumberProperty
-} from "./chunk-LXBE3MHA.js";
+} from "./chunk-MXSTLRGX.js";
 import {
   Platform
-} from "./chunk-SPOG25LG.js";
+} from "./chunk-MKGCQ6GO.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -62,23 +63,26 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuery
-} from "./chunk-FVDQIGLM.js";
+} from "./chunk-E5OH4RHV.js";
 import {
   DOCUMENT,
   InjectionToken,
   Injector,
   NgZone,
-  inject
-} from "./chunk-SAVM66CY.js";
+  inject,
+  require_operators
+} from "./chunk-HHN5OX7V.js";
 import {
-  Subject,
-  takeUntil
-} from "./chunk-RSS3ODKE.js";
+  require_cjs
+} from "./chunk-O5J3CNTX.js";
 import {
-  __spreadValues
-} from "./chunk-GOMI4DH3.js";
+  __spreadValues,
+  __toESM
+} from "./chunk-6DU2HRTW.js";
 
 // node_modules/@angular/material/fesm2022/_tooltip-chunk.mjs
+var import_operators = __toESM(require_operators(), 1);
+var import_rxjs = __toESM(require_cjs(), 1);
 var _c0 = ["tooltip"];
 var SCROLL_THROTTLE_MS = 20;
 function getMatTooltipInvalidPositionError(position) {
@@ -222,7 +226,7 @@ var MatTooltip = class _MatTooltip {
   }
   _eventCleanups = [];
   _touchstartTimeout = null;
-  _destroyed = new Subject();
+  _destroyed = new import_rxjs.Subject();
   _isDestroyed = false;
   constructor() {
     const defaultOptions = this._defaultOptions;
@@ -247,7 +251,7 @@ var MatTooltip = class _MatTooltip {
   ngAfterViewInit() {
     this._viewInitialized = true;
     this._setupPointerEnterEventsIfNeeded();
-    this._focusMonitor.monitor(this._elementRef).pipe(takeUntil(this._destroyed)).subscribe((origin) => {
+    this._focusMonitor.monitor(this._elementRef).pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe((origin) => {
       if (!origin) {
         this._ngZone.run(() => this.hide(0));
       } else if (origin === "keyboard") {
@@ -283,7 +287,7 @@ var MatTooltip = class _MatTooltip {
     const instance = this._tooltipInstance = overlayRef.attach(this._portal).instance;
     instance._triggerElement = this._elementRef.nativeElement;
     instance._mouseLeaveHideDelay = this._hideDelay;
-    instance.afterHidden().pipe(takeUntil(this._destroyed)).subscribe(() => this._detach());
+    instance.afterHidden().pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe(() => this._detach());
     this._setTooltipClass(this._tooltipClass);
     this._updateTooltipMessage();
     instance.show(delay);
@@ -316,7 +320,7 @@ var MatTooltip = class _MatTooltip {
     const scrollableAncestors = this._injector.get(ScrollDispatcher).getAncestorScrollContainers(this._elementRef);
     const panelClass = `${this._cssClassPrefix}-${PANEL_CLASS}`;
     const strategy = createFlexibleConnectedPositionStrategy(this._injector, this.positionAtOrigin ? origin || this._elementRef : this._elementRef).withTransformOriginOn(`.${this._cssClassPrefix}-tooltip`).withFlexibleDimensions(false).withViewportMargin(this._viewportMargin).withScrollableContainers(scrollableAncestors).withPopoverLocation("global");
-    strategy.positionChanges.pipe(takeUntil(this._destroyed)).subscribe((change) => {
+    strategy.positionChanges.pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe((change) => {
       this._updateCurrentPositionClass(change.connectionPair);
       if (this._tooltipInstance) {
         if (change.scrollableViewProperties.isOverlayClipped && this._tooltipInstance.isVisible()) {
@@ -333,9 +337,9 @@ var MatTooltip = class _MatTooltip {
       eventPredicate: this._overlayEventPredicate
     });
     this._updatePosition(this._overlayRef);
-    this._overlayRef.detachments().pipe(takeUntil(this._destroyed)).subscribe(() => this._detach());
-    this._overlayRef.outsidePointerEvents().pipe(takeUntil(this._destroyed)).subscribe(() => this._tooltipInstance?._handleBodyInteraction());
-    this._overlayRef.keydownEvents().pipe(takeUntil(this._destroyed)).subscribe((event) => {
+    this._overlayRef.detachments().pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe(() => this._detach());
+    this._overlayRef.outsidePointerEvents().pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe(() => this._tooltipInstance?._handleBodyInteraction());
+    this._overlayRef.keydownEvents().pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe((event) => {
       event.preventDefault();
       event.stopPropagation();
       this._ngZone.run(() => this.hide(0));
@@ -345,7 +349,7 @@ var MatTooltip = class _MatTooltip {
     }
     if (!this._dirSubscribed) {
       this._dirSubscribed = true;
-      this._dir.change.pipe(takeUntil(this._destroyed)).subscribe(() => {
+      this._dir.change.pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe(() => {
         if (this._overlayRef) {
           this._updatePosition(this._overlayRef);
         }
@@ -719,7 +723,7 @@ var TooltipComponent = class _TooltipComponent {
   _tooltip;
   _closeOnInteraction = false;
   _isVisible = false;
-  _onHide = new Subject();
+  _onHide = new import_rxjs.Subject();
   _showAnimation = "mat-mdc-tooltip-show";
   _hideAnimation = "mat-mdc-tooltip-hide";
   constructor() {
@@ -908,4 +912,4 @@ export {
   MatTooltip,
   TooltipComponent
 };
-//# sourceMappingURL=chunk-P2QGV523.js.map
+//# sourceMappingURL=chunk-JKKJS4GS.js.map

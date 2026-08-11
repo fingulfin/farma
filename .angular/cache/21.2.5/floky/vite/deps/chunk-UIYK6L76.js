@@ -1,23 +1,22 @@
-import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   _DisposeViewRepeaterStrategy
-} from "./chunk-RUJPSKFI.js";
+} from "./chunk-YGIWM5MO.js";
 import {
   CDK_VIRTUAL_SCROLL_VIEWPORT,
   ScrollingModule,
   ViewportRuler
-} from "./chunk-3AG4KEHS.js";
+} from "./chunk-OGFRKHAU.js";
 import {
   _RecycleViewRepeaterStrategy,
   _ViewRepeaterOperation,
   isDataSource
-} from "./chunk-PJJUZBHU.js";
+} from "./chunk-5MX34KEC.js";
 import {
   Directionality
-} from "./chunk-ZCHOUZYR.js";
+} from "./chunk-AUDLW4C6.js";
 import {
   Platform
-} from "./chunk-MKGCQ6GO.js";
+} from "./chunk-SPOG25LG.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -64,26 +63,28 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate1,
   ɵɵviewQuery
-} from "./chunk-E5OH4RHV.js";
+} from "./chunk-FVDQIGLM.js";
 import {
   DOCUMENT,
   EventEmitter,
   InjectionToken,
   Injector,
   inject,
-  require_operators,
   ɵɵdefineInjector
-} from "./chunk-HHN5OX7V.js";
+} from "./chunk-SAVM66CY.js";
 import {
-  require_cjs
-} from "./chunk-O5J3CNTX.js";
-import {
-  __toESM
-} from "./chunk-6DU2HRTW.js";
+  BehaviorSubject,
+  Subject,
+  animationFrameScheduler,
+  asapScheduler,
+  auditTime,
+  combineLatest,
+  isObservable,
+  of,
+  takeUntil
+} from "./chunk-RSS3ODKE.js";
 
 // node_modules/@angular/cdk/fesm2022/table.mjs
-var import_rxjs = __toESM(require_cjs(), 1);
-var import_operators = __toESM(require_operators(), 1);
 var _c0 = [[["caption"]], [["colgroup"], ["col"]], "*"];
 var _c1 = ["caption", "colgroup, col", "*"];
 function CdkTable_Conditional_2_Template(rf, ctx) {
@@ -1268,7 +1269,7 @@ var CdkTable = class _CdkTable {
   _document = inject(DOCUMENT);
   _data;
   _renderedRange;
-  _onDestroy = new import_rxjs.Subject();
+  _onDestroy = new Subject();
   _renderRows;
   _renderChangeSubscription = null;
   _columnDefsByName = /* @__PURE__ */ new Map();
@@ -1295,8 +1296,8 @@ var CdkTable = class _CdkTable {
   _isShowingNoDataRow = false;
   _hasAllOutlets = false;
   _hasInitialized = false;
-  _headerRowStickyUpdates = new import_rxjs.Subject();
-  _footerRowStickyUpdates = new import_rxjs.Subject();
+  _headerRowStickyUpdates = new Subject();
+  _footerRowStickyUpdates = new Subject();
   _disableVirtualScrolling = false;
   _getCellRole() {
     if (this._cellRoleInternal === void 0) {
@@ -1326,8 +1327,8 @@ var CdkTable = class _CdkTable {
     }
   }
   _dataSource;
-  _dataSourceChanges = new import_rxjs.Subject();
-  _dataStream = new import_rxjs.Subject();
+  _dataSourceChanges = new Subject();
+  _dataStream = new Subject();
   get multiTemplateDataRows() {
     return this._multiTemplateDataRows;
   }
@@ -1350,7 +1351,7 @@ var CdkTable = class _CdkTable {
   _fixedLayout = false;
   recycleRows = false;
   contentChanged = new EventEmitter();
-  viewChange = new import_rxjs.BehaviorSubject({
+  viewChange = new BehaviorSubject({
     start: 0,
     end: Number.MAX_VALUE
   });
@@ -1378,7 +1379,7 @@ var CdkTable = class _CdkTable {
   }
   ngOnInit() {
     this._setupStickyStyler();
-    this._viewportRuler.change().pipe((0, import_operators.takeUntil)(this._onDestroy)).subscribe(() => {
+    this._viewportRuler.change().pipe(takeUntil(this._onDestroy)).subscribe(() => {
       this._forceRecalculateCellWidths = true;
     });
   }
@@ -1680,15 +1681,15 @@ var CdkTable = class _CdkTable {
     let dataStream;
     if (isDataSource(this.dataSource)) {
       dataStream = this.dataSource.connect(this);
-    } else if ((0, import_rxjs.isObservable)(this.dataSource)) {
+    } else if (isObservable(this.dataSource)) {
       dataStream = this.dataSource;
     } else if (Array.isArray(this.dataSource)) {
-      dataStream = (0, import_rxjs.of)(this.dataSource);
+      dataStream = of(this.dataSource);
     }
     if (dataStream === void 0 && (typeof ngDevMode === "undefined" || ngDevMode)) {
       throw getTableUnknownDataSourceError();
     }
-    this._renderChangeSubscription = (0, import_rxjs.combineLatest)([dataStream, this.viewChange]).pipe((0, import_operators.takeUntil)(this._onDestroy)).subscribe(([data, range]) => {
+    this._renderChangeSubscription = combineLatest([dataStream, this.viewChange]).pipe(takeUntil(this._onDestroy)).subscribe(([data, range]) => {
       this._data = data || [];
       this._renderedRange = range;
       this._dataStream.next(data);
@@ -1825,23 +1826,23 @@ var CdkTable = class _CdkTable {
     const direction = this._dir ? this._dir.value : "ltr";
     const injector = this._injector;
     this._stickyStyler = new StickyStyler(this._isNativeHtmlTable, this.stickyCssClass, this._platform.isBrowser, this.needsPositionStickyOnElement, direction, this, injector);
-    (this._dir ? this._dir.change : (0, import_rxjs.of)()).pipe((0, import_operators.takeUntil)(this._onDestroy)).subscribe((value) => {
+    (this._dir ? this._dir.change : of()).pipe(takeUntil(this._onDestroy)).subscribe((value) => {
       this._stickyStyler.direction = value;
       this.updateStickyColumnStyles();
     });
   }
   _setupVirtualScrolling(viewport) {
-    const virtualScrollScheduler = typeof requestAnimationFrame !== "undefined" ? import_rxjs.animationFrameScheduler : import_rxjs.asapScheduler;
+    const virtualScrollScheduler = typeof requestAnimationFrame !== "undefined" ? animationFrameScheduler : asapScheduler;
     this.viewChange.next({
       start: 0,
       end: 0
     });
-    viewport.renderedRangeStream.pipe((0, import_operators.auditTime)(0, virtualScrollScheduler), (0, import_operators.takeUntil)(this._onDestroy)).subscribe(this.viewChange);
+    viewport.renderedRangeStream.pipe(auditTime(0, virtualScrollScheduler), takeUntil(this._onDestroy)).subscribe(this.viewChange);
     viewport.attach({
       dataStream: this._dataStream,
       measureRangeSize: (range, orientation) => this._measureRangeSize(range, orientation)
     });
-    (0, import_rxjs.combineLatest)([viewport.renderedContentOffset, this._headerRowStickyUpdates]).pipe((0, import_operators.takeUntil)(this._onDestroy)).subscribe(([offsetFromTop, update]) => {
+    combineLatest([viewport.renderedContentOffset, this._headerRowStickyUpdates]).pipe(takeUntil(this._onDestroy)).subscribe(([offsetFromTop, update]) => {
       if (!update.sizes || !update.offsets || !update.elements) {
         return;
       }
@@ -1856,7 +1857,7 @@ var CdkTable = class _CdkTable {
         }
       }
     });
-    (0, import_rxjs.combineLatest)([viewport.renderedContentOffset, this._footerRowStickyUpdates]).pipe((0, import_operators.takeUntil)(this._onDestroy)).subscribe(([offsetFromTop, update]) => {
+    combineLatest([viewport.renderedContentOffset, this._footerRowStickyUpdates]).pipe(takeUntil(this._onDestroy)).subscribe(([offsetFromTop, update]) => {
       if (!update.sizes || !update.offsets || !update.elements) {
         return;
       }
@@ -2328,4 +2329,4 @@ export {
   CdkTextColumn,
   CdkTableModule
 };
-//# sourceMappingURL=chunk-FH3YIMKA.js.map
+//# sourceMappingURL=chunk-UIYK6L76.js.map

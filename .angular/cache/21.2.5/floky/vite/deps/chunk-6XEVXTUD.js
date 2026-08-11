@@ -1,10 +1,13 @@
 import {
+  MatFormFieldModule
+} from "./chunk-7TSWJGUD.js";
+import {
   ErrorStateMatcher,
   _ErrorStateTracker
 } from "./chunk-AWWN7CBX.js";
 import {
-  MatFormFieldModule
-} from "./chunk-MKJTKR5E.js";
+  SelectionModel
+} from "./chunk-M4SDQFAA.js";
 import {
   MAT_OPTGROUP,
   MAT_OPTION_PARENT_COMPONENT,
@@ -12,23 +15,20 @@ import {
   MatOptionModule,
   _countGroupLabelsBeforeOption,
   _getOptionScrollPosition
-} from "./chunk-BHCB6WBW.js";
+} from "./chunk-43V35HV2.js";
 import {
   MAT_FORM_FIELD,
   MatFormFieldControl
-} from "./chunk-VSOURFI6.js";
+} from "./chunk-JYWZGVBB.js";
 import {
-  SelectionModel
-} from "./chunk-M4SDQFAA.js";
+  _animationsDisabled
+} from "./chunk-JW54EOPW.js";
 import {
   FormGroupDirective,
   NgControl,
   NgForm,
   Validators
 } from "./chunk-QJD2REES.js";
-import {
-  _animationsDisabled
-} from "./chunk-JW54EOPW.js";
 import {
   ActiveDescendantKeyManager,
   LiveAnnouncer,
@@ -41,7 +41,7 @@ import {
   OVERLAY_DEFAULT_CONFIG,
   OverlayModule,
   createRepositionScrollStrategy
-} from "./chunk-2UJZH57X.js";
+} from "./chunk-SVFFGUPO.js";
 import {
   A,
   DOWN_ARROW,
@@ -60,7 +60,7 @@ import {
 import {
   CdkScrollableModule,
   ViewportRuler
-} from "./chunk-JMKWWLIP.js";
+} from "./chunk-OGFRKHAU.js";
 import {
   BidiModule,
   Directionality
@@ -1383,4 +1383,4 @@ export {
   MatSelectTrigger,
   MatSelectModule
 };
-//# sourceMappingURL=chunk-6PKQY37J.js.map
+//# sourceMappingURL=chunk-6XEVXTUD.js.map

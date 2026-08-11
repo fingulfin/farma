@@ -25,11 +25,11 @@ import {
   _IdGenerator
 } from "./chunk-KCGWZZWS.js";
 import {
-  BidiModule
-} from "./chunk-AUDLW4C6.js";
-import {
   _CdkPrivateStyleLoader
 } from "./chunk-4OFQPBG3.js";
+import {
+  BidiModule
+} from "./chunk-AUDLW4C6.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -555,4 +555,4 @@ export {
   _getOptionScrollPosition,
   MatOptionModule
 };
-//# sourceMappingURL=chunk-BHCB6WBW.js.map
+//# sourceMappingURL=chunk-43V35HV2.js.map
