@@ -9,7 +9,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "fuse": {
+    "floky": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -36,7 +36,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/farma/",
+              "baseHref": "/floky/",
               "budgets": [
                 {
                   "type": "initial",
@@ -67,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "fuse:build:production"
+              "buildTarget": "floky:build:production"
             },
             "development": {
-              "buildTarget": "fuse:build:development"
+              "buildTarget": "floky:build:development"
             }
           },
           "defaultConfiguration": "development"

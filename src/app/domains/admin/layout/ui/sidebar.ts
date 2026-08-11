@@ -17,7 +17,7 @@ import { User } from '@/app/domains/admin/layout/ui/user';
       <img
         src="/images/logo/logo.svg"
         class="size-8"
-        alt="Fuse logo"
+        alt="Floky logo"
       />
 
       <div class="flex flex-col">

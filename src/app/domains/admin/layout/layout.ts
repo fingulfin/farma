@@ -47,7 +47,7 @@ import { AdminSidebar } from '@/app/domains/admin/layout/ui/sidebar';
         >
           <a
             class="absolute inset-0 z-10"
-            href="https://builderkit.dev?utm_source=fuse&utm_medium=banner&utm_campaign=upgrade"
+            href="https://builderkit.dev?utm_source=floky&utm_medium=banner&utm_campaign=upgrade"
             target="_blank"
             ><span></span
           ></a>
@@ -55,7 +55,7 @@ import { AdminSidebar } from '@/app/domains/admin/layout/ui/sidebar';
           beautiful Angular applications. Use promo code
           <span
             class="rounded-lg bg-emerald-300 px-1.5 py-0.5 text-base font-semibold text-emerald-950"
-            >FUSE</span
+            >Floky</span
           >
           on checkout for
           <span class="underline underline-offset-2">20%</span> off your
